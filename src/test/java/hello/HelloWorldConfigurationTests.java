@@ -47,4 +47,11 @@ public class HelloWorldConfigurationTests {
 		assertEquals(HttpStatus.OK, entity.getStatusCode());
 	}
 
+	@Test
+	public void testUrl_test() throws Exception {
+		ResponseEntity<String> entity = restTemplate
+				.getForEntity("http://localhost:" + this.port + "/test", String.class);
+		assertEquals(HttpStatus.OK, entity.getStatusCode());
+		assertEquals("test new API", entity.getBody());
+	}
 }
